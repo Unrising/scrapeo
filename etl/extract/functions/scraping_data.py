@@ -84,12 +84,9 @@ def scrape_city_data(city_name: str, country_name: str) -> pd.DataFrame:
     ).reset_index()
 
     df_pivot.columns.name = None
+
     print(f"Scraping réussi : {city_name} ({country_name}) depuis {final_url}")
+
+    # On retourne le df_pivot
     return df_pivot
 
-# Code de test
-if __name__ == "__main__":
-    city = "Acheres"
-    country = "France"
-    df = scrape_city_data(city, country)
-    print(df.head())

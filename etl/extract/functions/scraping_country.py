@@ -55,8 +55,3 @@ def get_country_links() -> dict:
     # On retourne le dictionnaire 
     return country_links
 
-# Code de test 
-if __name__ == "__main__":
-    countries = get_country_links()
-    for name, url in list(countries.items())[:10]:  # Affiche les 10 premiers pays
-        print(f"{name} → {url}")

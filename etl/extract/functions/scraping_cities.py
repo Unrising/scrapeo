@@ -71,9 +71,3 @@ def get_city_links_from_country(country_url: str) -> dict:
     # On retourne le dictionnaire 
     return city_links
 
-# Code de test 
-if __name__ == "__main__":
-    url_france = "https://www.numbeo.com/cost-of-living/country_result.jsp?country=France"
-    cities = get_city_links_from_country(url_france)
-    for name,url in list(cities.items())[:10]:
-        print(f"{name} -> {url}")

@@ -102,9 +102,28 @@ def run_extraction_pipeline(
     print(f"Données sauvegardées dans : {full_path}")
 
     return df_all
-    
-# Code de test
-if __name__ == "__main__":
-    df = run_extraction_pipeline(limit_countries=2,limit_cities=3)
-    print("\n Aperçu des données extraites :")
+
+def run_extract():
+    print("\n--- Extraction des données ---")
+    countries = input("Entrez les pays séparés par une virgule (ex: France,Germany,Italy) : ")
+    country_list = [c.strip() for c in countries.split(",") if c.strip()]
+
+    limit_cities = input("Nombre de villes max par pays (laisser vide = illimité) : ")
+    limit_cities = int(limit_cities) if limit_cities.strip().isdigit() else None
+
+    filename = input("Nom du fichier de sortie (ex: france_scraping.csv) : ").strip()
+    if not filename.endswith(".csv"):
+        filename += ".csv"
+
+    save_path = os.path.join("data/1_bronze", filename)
+
+    df = run_extraction_pipeline(
+        delay_between_request=1,
+        country_list=country_list,
+        limit_cities=limit_cities
+    )
+
+    df.to_csv(save_path, index=False)
+    print(f"\nExtraction terminée. Fichier sauvegardé : {save_path}")
     print(df.head())
+
