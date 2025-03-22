@@ -1,4 +1,14 @@
-# Extract
+# Web Scraping
 requests
 beautifulsoup4
+
+# Traitement de données
 pandas
+numpy
+
+# Machine Learning
+scikit-learn
+
+# Visualisation
+matplotlib
+seaborn

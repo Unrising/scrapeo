@@ -1,5 +1,6 @@
 import requests 
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
 def get_country_links() -> dict:
     """
@@ -15,8 +16,10 @@ def get_country_links() -> dict:
 
     # Pour éviter d'être bloqué
     headers = {
-        "User-Agent" : "Mozilla/5.0" 
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Accept-Language": "fr-FR,fr;q=0.9"
     }
+
 
     # Utilisation de la librairie requests pour récuperer la page html de l'url
     response = requests.get(url, headers=headers)
@@ -46,7 +49,7 @@ def get_country_links() -> dict:
         country_name = link.text.strip()
         href = link.get("href")
         if href and "country_result.jsp?country=" in href:
-            full_url = f"https://www.numbeo.com{href}"
+            full_url = urljoin("https://www.numbeo.com/cost-of-living/", href)
             country_links[country_name] = full_url
     
     # On retourne le dictionnaire 

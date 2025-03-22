@@ -27,11 +27,14 @@ def get_city_links_from_country(country_url: str) -> dict:
 
     # Pour éviter d'être bloqué
     headers = {
-        "User-agent" : "Mozilla/5.0"
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Accept-Language": "fr-FR,fr;q=0.9"
     }
 
     # Utilisation de la librairie requests pour récuperer la page html de l'url
     response = requests.get(country_url, headers=headers)
+
+    print(country_url)
 
     # Vérification de la réussite de la requête
     if response.status_code != 200:
