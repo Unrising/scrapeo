@@ -28,10 +28,3 @@ pip install -r requirements.txt
 python main.py
 ```
 
-### 3. Fonctionnalités
-
-#### Scraper les données (choisir les pays, villes, nom de fichier)
-
-#### Transformer les données (choisir un fichier, appliquer les nettoyages)
-
-#### Lancer un modèle de machine learning
