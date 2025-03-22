@@ -1,0 +1,4 @@
+# Extract
+requests
+beautifulsoup4
+pandas
